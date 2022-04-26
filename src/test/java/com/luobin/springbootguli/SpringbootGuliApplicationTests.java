@@ -2,12 +2,10 @@ package com.luobin.springbootguli;
 
 import com.luobin.springbootguli.entity.User;
 import com.luobin.springbootguli.mapper.UserMapper;
-import org.apache.ibatis.annotations.Select;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Date;
 import java.util.List;
 
 @SpringBootTest
@@ -17,8 +15,11 @@ class SpringbootGuliApplicationTests {
     void contextLoads() {
     }
 
+    // 多态的一种体现，直接使用接口的引用指向具体实现对象
+    // userMapper 存在的价值就是调用相关的操作数据库的方法，将数据存储到数据库中
     @Autowired
     private UserMapper userMapper;
+
 
     /**
      * 查询 User 里面的所有数据
@@ -38,9 +39,7 @@ class SpringbootGuliApplicationTests {
         User user = new User();
         user.setAge(100);
         user.setEmail("test@163.com");
-        user.setName("Jack");
-
-
+        user.setName("Jack112");
 
         // insert 可以返回变化的行数
         int insert =  userMapper.insert(user);
@@ -57,8 +56,7 @@ class SpringbootGuliApplicationTests {
         user.setId(2L);
         user.setAge(120);
 
-       int row =  userMapper.updateById(user);
-        System.out.println(row);
+       int updateRow =  userMapper.updateById(user);
+        System.out.println(updateRow);
     }
-
 }

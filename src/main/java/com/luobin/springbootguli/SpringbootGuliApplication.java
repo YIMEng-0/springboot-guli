@@ -11,5 +11,4 @@ public class SpringbootGuliApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringbootGuliApplication.class, args);
     }
-
 }

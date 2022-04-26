@@ -37,6 +37,6 @@ public class User {
     @TableField(fill = FieldFill.INSERT) // 自动对字段进行填充
     private Date creatTime;
 
-    @TableField(fill = FieldFill.UPDATE) // 自动的对字段进行填充的下一种形式
+    @TableField(fill = FieldFill.INSERT_UPDATE) // 自动的对字段进行填充的下一种形式
     private Date updateTime;
 }

@@ -19,11 +19,13 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     public void insertFill(MetaObject metaObject) {
         // 元数据：关于数据的数据，表中的数据是各种数字，表的名字，表的字段就是一种元数据，描述数据的数据
         this.setFieldValByName("creatTime", new Date(), metaObject);
+        this.setFieldValByName("updateTime", new Date(), metaObject);
     }
 
     // mp 执行修改的时候，这个方法就会执行
     @Override
     public void updateFill(MetaObject metaObject) {
-
+        // 创建的时间不需要自动的填充，只是修改的时间需要填充即可
+        this.setFieldValByName("updateTime", new Date(), metaObject);
     }
 }
